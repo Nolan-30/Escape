@@ -1,34 +1,38 @@
 using UnityEngine;
-using System.Collections;
 
 public class SpawnerScript : MonoBehaviour
 {
-    public GameObject itemPrefab;
-    public float tempsEntreSpawn = 1.0f; // chaque cube apparaitre tt les 1sec
+
+    public GameObject itemBomb;   // rouge
+    public GameObject itemBigBomb;   //   noir
+    public GameObject itemHeal;   // vert
+    public GameObject itemSpeed;  // jaune
 
     void Start()
     {
-        InvokeRepeating("Spawn", 0f, tempsEntreSpawn);
+        // apparatition des differents items
+
+        InvokeRepeating("SpawnBomb", 1f, 1f); // 1sec
+        InvokeRepeating("SpawnBigBomb", 5f, 5f); // 5 sec
+        InvokeRepeating("SpawnHeal", 15f, 15f); // 15 sec
+        InvokeRepeating("SpawnSpeed", 20f, 20f); // 20 sec
     }
 
-    // C'est cette version UNIQUE que tu dois garder
-    void Spawn()
-    {
-        // Au lieu de créer les objets ici, on lance la "séquence de pluie"
-        StartCoroutine(PluieDeCubes());
-    }
+    // Fonctions de spawn spécifiques
+    void SpawnBomb() { Apparition(itemBomb); }
+    void SpawnBigBomb() { Apparition(itemBigBomb); }
+    void SpawnHeal() { Apparition(itemHeal); }
+    void SpawnSpeed() { Apparition(itemSpeed); }
 
-    // C'est notre séquence "au ralenti"
-    IEnumerator PluieDeCubes()
+    // La fonction qui gère la création physique dans le jeu
+    void Apparition(GameObject objet)
     {
-        for (int i = 0; i < 6; i++)
+        if (objet != null)
         {
-            float xAleatoire = Random.Range(-9f, 9f);
-            Vector3 position = new Vector3(xAleatoire, transform.position.y, 0);
-            Instantiate(itemPrefab, position, Quaternion.identity);
-
-            // le code attend 1sec avant de continuer la boucle 
-            yield return new WaitForSeconds(1.0f);
+            float xAleatoire = Random.Range(-8f, 8f);
+            // On fait spawner un peu plus haut (Y = 7) pour qu'ils tombent bien
+            Vector3 position = new Vector3(xAleatoire, 7f, 0f);
+            Instantiate(objet, position, Quaternion.identity);
         }
     }
 }
