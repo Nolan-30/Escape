@@ -1,14 +1,14 @@
-🚀 L'Esquiveur : Survival 2D
-Bienvenue dans L'Esquiveur, un jeu d'arcade nerveux développé sous Unity 6. Esquivez les bombes, gérez vos points de vie et survivez à la pluie d'objets !
+## ESCAPE
+
+🚀 Escape: Survival 2D
+Bienvenue sur le jeu Escape, un jeu d'arcade nerveux développé sous Unity 6. Esquivez les bombes, gérez vos points de vie et survivez à la pluie d'objets !
 
 🎮 Le Concept
-Vous contrôlez un cube blanc en bas de l'écran. Votre mission : Survivre. Des objets tombent du ciel à une fréquence aléatoire. Chaque collision a un impact direct sur votre santé ou vos capacités.
+Vous contrôlez un joueur en bas de l'écran. Votre mission : Survivre. Des objets tombent du ciel à une fréquence aléatoire. Chaque collision a un impact direct sur votre santé ou vos capacités.
 
 Déplacement : Flèches Gauche / Droite (ou Q / D).
 
 Objectif : Garder vos HP au-dessus de 0 le plus longtemps possible.
-
-
 
 🛠️ Coulisses Techniques
 Ce projet met en œuvre des concepts clés du développement de jeux vidéo :
