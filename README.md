@@ -1,4 +1,4 @@
-## ESCAPE
+##  🏃 ESCAPE 🏃
 
 🚀 Escape: Survival 2D
 Bienvenue sur le jeu Escape, un jeu d'arcade nerveux développé sous Unity 6. Esquivez les bombes, gérez vos points de vie et survivez à la pluie d'objets !
