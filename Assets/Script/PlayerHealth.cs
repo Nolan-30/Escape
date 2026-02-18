@@ -2,15 +2,11 @@ using UnityEngine;
 using TMPro; // Utilisation du texte UI
 using System.Collections; // pr mettre le boost de vitesse
 
-
-
 public class PlayerHealth : MonoBehaviour
 {
     public int hp = 10;
     public TextMeshProUGUI textePV;
 
-    // variables audio
-    public AudioSource playerAudio;
     public AudioClip sonBombe;
     public AudioClip sonSoin;
     public AudioClip sonSpeed;
@@ -78,7 +74,7 @@ public class PlayerHealth : MonoBehaviour
         if (other.CompareTag("ItemBomb"))
         {
             hp -= 2;
-            playerAudio.PlayOneShot(sonBombe);
+            AudioSource.PlayClipAtPoint(sonBombe, other.transform.position);
             Destroy(other.gameObject);
             MettreAJourUI();
             VerifierMort();
@@ -88,7 +84,7 @@ public class PlayerHealth : MonoBehaviour
         if (other.CompareTag("ItemBigBomb"))
         {
             hp -= 7;
-            playerAudio.PlayOneShot(sonBombe);
+            AudioSource.PlayClipAtPoint(sonBombe, other.transform.position);
             Destroy(other.gameObject);
             MettreAJourUI();
             VerifierMort();
@@ -99,7 +95,7 @@ public class PlayerHealth : MonoBehaviour
         {
             hp += 4;
             if (hp > 10) hp = 10;
-            playerAudio.PlayOneShot(sonSoin);
+            AudioSource.PlayClipAtPoint(sonSoin, other.transform.position);
             Destroy(other.gameObject);
             MettreAJourUI();
         }
@@ -109,7 +105,7 @@ public class PlayerHealth : MonoBehaviour
         {
             if (scriptMouvement != null)
             {
-                playerAudio.PlayOneShot(sonSpeed);
+                AudioSource.PlayClipAtPoint(sonSpeed, other.transform.position);
                 StartCoroutine(BoostVitesse());
             }
             Destroy(other.gameObject);

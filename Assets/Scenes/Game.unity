@@ -393,10 +393,10 @@ GameObject:
   m_Component:
   - component: {fileID: 559893684}
   - component: {fileID: 559893683}
-  - component: {fileID: 559893685}
   - component: {fileID: 559893686}
   - component: {fileID: 559893687}
-  - component: {fileID: 559893688}
+  - component: {fileID: 559893689}
+  - component: {fileID: 559893690}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -477,19 +477,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &559893685
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 559893682}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c001749c6cc0884cb256e738046bfc3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Mouvement
-  vitesse: 10
 --- !u!50 &559893686
 Rigidbody2D:
   serializedVersion: 5
@@ -563,7 +550,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &559893688
+--- !u!114 &559893689
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -572,15 +559,27 @@ MonoBehaviour:
   m_GameObject: {fileID: 559893682}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4bf4548b21bd0c4293903568e0d28e7, type: 3}
+  m_Script: {fileID: 11500000, guid: 627b877c652c2fe4ca826ab06580356b, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: '::'
+  m_EditorClassIdentifier: Assembly-CSharp::Mouvement
+  vitesse: 10
+--- !u!114 &559893690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 559893682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1ff7891790213342ba99ae33e18b472, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
   hp: 10
   textePV: {fileID: 1634474083}
-  playerAudio: {fileID: 0}
-  sonBombe: {fileID: 0}
-  sonSoin: {fileID: 0}
-  sonSpeed: {fileID: 0}
+  sonBombe: {fileID: 8300000, guid: e34525ba28f0332418696f0277f07e1d, type: 3}
+  sonSoin: {fileID: 8300000, guid: 4586bcf1708c3c8439510511788539e8, type: 3}
+  sonSpeed: {fileID: 8300000, guid: bf01dc3aec688be4c993ddf29e13f221, type: 3}
 --- !u!1 &712470643
 GameObject:
   m_ObjectHideFlags: 0
@@ -997,7 +996,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1212086611}
-  - component: {fileID: 1212086610}
+  - component: {fileID: 1212086612}
   m_Layer: 0
   m_Name: Spawner
   m_TagString: Untagged
@@ -1005,22 +1004,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1212086610
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1212086609}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e32ae5e71f88be145b599e028edf7bf3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
-  itemBomb: {fileID: 3587517928687126813, guid: 89344ff063f424d4eb9e8a60a795611a, type: 3}
-  itemBigBomb: {fileID: 3587517928687126813, guid: 68e0b2cd31a777744af0ffeb38256da4, type: 3}
-  itemHeal: {fileID: 3587517928687126813, guid: a529c58f9a59033438266048f5169a14, type: 3}
-  itemSpeed: {fileID: 3587517928687126813, guid: f0f71994c2608c74fae71b58fd845439, type: 3}
 --- !u!4 &1212086611
 Transform:
   m_ObjectHideFlags: 0
@@ -1036,6 +1019,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1212086612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1212086609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7d98c8cb9b23c245abbd4f2b2213031, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SpawnerScript
+  itemBomb: {fileID: 3587517928687126813, guid: 89344ff063f424d4eb9e8a60a795611a, type: 3}
+  itemBigBomb: {fileID: 3587517928687126813, guid: 68e0b2cd31a777744af0ffeb38256da4, type: 3}
+  itemHeal: {fileID: 3587517928687126813, guid: a529c58f9a59033438266048f5169a14, type: 3}
+  itemSpeed: {fileID: 3587517928687126813, guid: f0f71994c2608c74fae71b58fd845439, type: 3}
 --- !u!1 &1408224666
 GameObject:
   m_ObjectHideFlags: 0
