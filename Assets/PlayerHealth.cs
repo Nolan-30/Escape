@@ -2,10 +2,18 @@ using UnityEngine;
 using TMPro; // Utilisation du texte UI
 using System.Collections; // pr mettre le boost de vitesse
 
+
+
 public class PlayerHealth : MonoBehaviour
 {
     public int hp = 10;
     public TextMeshProUGUI textePV;
+
+    // variables audio
+    public AudioSource playerAudio;
+    public AudioClip sonBombe;
+    public AudioClip sonSoin;
+    public AudioClip sonSpeed;
 
     private Mouvement scriptMouvement;
 
@@ -64,12 +72,68 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
-    // Corrigé : La fonction BoostVitesse est maintenant SORTIE de OnCollisionEnter2D
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        // bombe normal
+        if (other.CompareTag("ItemBomb"))
+        {
+            hp -= 2;
+            playerAudio.PlayOneShot(sonBombe);
+            Destroy(other.gameObject);
+            MettreAJourUI();
+            VerifierMort();
+        }
+
+        // boule de feu
+        if (other.CompareTag("ItemBigBomb"))
+        {
+            hp -= 7;
+            playerAudio.PlayOneShot(sonBombe);
+            Destroy(other.gameObject);
+            MettreAJourUI();
+            VerifierMort();
+        }
+
+        // soin
+        if (other.CompareTag("ItemHeal"))
+        {
+            hp += 4;
+            if (hp > 10) hp = 10;
+            playerAudio.PlayOneShot(sonSoin);
+            Destroy(other.gameObject);
+            MettreAJourUI();
+        }
+
+        // speed
+        if (other.CompareTag("ItemSpeed"))
+        {
+            if (scriptMouvement != null)
+            {
+                playerAudio.PlayOneShot(sonSpeed);
+                StartCoroutine(BoostVitesse());
+            }
+            Destroy(other.gameObject);
+        }
+    }
+
+
+    // pour éviter de repeter le test de mort partout
+    void VerifierMort()
+    {
+        if (hp <= 0)
+        {
+            GameOver();
+        }
+    }
+
+
+
+
     IEnumerator BoostVitesse()
     {
         float vitesseDeBase = scriptMouvement.vitesse;
         scriptMouvement.vitesse *= 2; // On double
-        yield return new WaitForSeconds(5f); // On attend 5 secondes
+        yield return new WaitForSeconds(5f); // On attend 5 sec
         scriptMouvement.vitesse = vitesseDeBase; // On remet la vitesse normale
     }
 
