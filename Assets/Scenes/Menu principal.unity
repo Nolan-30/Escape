@@ -588,15 +588,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: Escape
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: f7f9e8467a86449c68376e5ec5278724, type: 2}
+  m_sharedMaterial: {fileID: -2897752026540520855, guid: f7f9e8467a86449c68376e5ec5278724, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4293132421
-  m_fontColor: {r: 0.51990116, g: 0, b: 0.89411765, a: 1}
+    rgba: 4291572377
+  m_fontColor: {r: 0.6, g: 0.1960784, b: 0.8000001, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
