@@ -1,11 +1,13 @@
 using UnityEngine;
-using TMPro; 
-using UnityEngine.Events; // Pour prévenir le GameManager quand c'est fini
+using TMPro; // Utilisation du texte UI
+using System.Collections; // pr mettre le boost de vitesse
+using UnityEngine.Events;
 
 public class TimerManager : MonoBehaviour
 {
     [Header("Réglages du Temps")]
     public float timeRemaining = 30f;
+    public TextMeshProUGUI victoryText;
     private bool timerIsRunning = false;
 
     [Header("Références UI")]
@@ -19,14 +21,14 @@ public class TimerManager : MonoBehaviour
         timerIsRunning = true;
     }
 
-    
+
 
     void UpdateDisplay(float timeToDisplay)
     {
         // On divise toujours par 60 pour obtenir les minutes réelles
-        float minutes = Mathf.FloorToInt(timeToDisplay / 60); 
+        float minutes = Mathf.FloorToInt(timeToDisplay / 60);
         float seconds = Mathf.FloorToInt(timeToDisplay % 60);
-        
+
         // Cela affichera "00:30", "00:29", etc.
         timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
     }
@@ -45,10 +47,10 @@ public class TimerManager : MonoBehaviour
                 timeRemaining = 0;
                 timerIsRunning = false;
                 UpdateDisplay(timeRemaining);
-                
-                
-                ArreterLeJeu(); 
-              
+
+
+                ArreterLeJeu();
+
 
                 if (onTimerEnd != null)
                     onTimerEnd.Invoke();
@@ -58,7 +60,13 @@ public class TimerManager : MonoBehaviour
 
     void ArreterLeJeu()
     {
-        Time.timeScale = 0f; // Cela fige TOUS les mouvements basés sur le temps
-        Debug.Log("Le jeu est figé !");
+        Time.timeScale = 0f;
+
+        if (victoryText != null)
+        {
+            victoryText.gameObject.SetActive(true); // .gameObject ajouté ici ✅
+        }
+
+        Debug.Log("Le jeu est figé ! Victoire !");
     }
 }

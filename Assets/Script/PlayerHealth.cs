@@ -2,10 +2,14 @@ using UnityEngine;
 using TMPro; // Utilisation du texte UI
 using System.Collections; // pr mettre le boost de vitesse
 
+
+
 public class PlayerHealth : MonoBehaviour
 {
     public int hp = 10;
     public TextMeshProUGUI textePV;
+    public TextMeshProUGUI gameOverText;
+    public TextMeshProUGUI victoryText;
 
     public AudioClip sonBombe;
     public AudioClip sonSoin;
@@ -52,7 +56,14 @@ public class PlayerHealth : MonoBehaviour
         else if (nomObjet.Contains("ItemHeal"))
         {
             hp += 4;
+
+            // pr pas avoir plus de 10 hp
             if (hp > 10) hp = 10;
+            MettreAJourUI();
+            Destroy(collision.gameObject);
+
+            // pr pas avoir plus de 10 hp
+            if (hp < 0) hp = 0;
             MettreAJourUI();
             Destroy(collision.gameObject);
         }
@@ -124,7 +135,6 @@ public class PlayerHealth : MonoBehaviour
 
 
 
-
     IEnumerator BoostVitesse()
     {
         float vitesseDeBase = scriptMouvement.vitesse;
@@ -135,9 +145,23 @@ public class PlayerHealth : MonoBehaviour
 
     void GameOver()
     {
-        textePV.text = "GAME OVER !";
-        Time.timeScale = 0; // Le jeu s'arrête
-        Debug.Log("Le jeu est arrêté !");
+        // On ne change plus le texte des PV
+        // textePV.text = "GAME OVER !"; // <-- Supprime ou commente cette ligne
+
+        // On active notre gros texte rouge
+        if (gameOverText != null)
+        {
+            gameOverText.gameObject.SetActive(true);
+        }
+
+        Time.timeScale = 0;
+    }
+
+    void Victory()
+    {
+
+
+
     }
 
     void MettreAJourUI()
