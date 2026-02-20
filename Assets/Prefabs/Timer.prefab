@@ -157,7 +157,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0dd3bfb44dbc422449ccdd4f62a91fe2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TimerManager
-  timeRemaining: 60
+  timeRemaining: 10
+  victoryText: {fileID: 0}
   timerText: {fileID: 8817736142780436719}
   onTimerEnd:
     m_PersistentCalls:

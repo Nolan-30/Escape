@@ -8,8 +8,7 @@ public class PlayerHealth : MonoBehaviour
 {
     public int hp = 10;
     public TextMeshProUGUI textePV;
-    public TextMeshProUGUI gameOverText;
-    public TextMeshProUGUI victoryText;
+    public GameObject gameOverPanel;
 
     public AudioClip sonBombe;
     public AudioClip sonSoin;
@@ -133,8 +132,6 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
-
-
     IEnumerator BoostVitesse()
     {
         float vitesseDeBase = scriptMouvement.vitesse;
@@ -149,20 +146,14 @@ public class PlayerHealth : MonoBehaviour
         // textePV.text = "GAME OVER !"; // <-- Supprime ou commente cette ligne
 
         // On active notre gros texte rouge
-        if (gameOverText != null)
+        if (gameOverPanel != null)
         {
-            gameOverText.gameObject.SetActive(true);
+            gameOverPanel.gameObject.SetActive(true);
         }
 
         Time.timeScale = 0;
     }
 
-    void Victory()
-    {
-
-
-
-    }
 
     void MettreAJourUI()
     {

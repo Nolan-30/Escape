@@ -7,7 +7,7 @@ public class TimerManager : MonoBehaviour
 {
     [Header("Réglages du Temps")]
     public float timeRemaining = 30f;
-    public TextMeshProUGUI victoryText;
+    public GameObject winPanel;
     private bool timerIsRunning = false;
 
     [Header("Références UI")]
@@ -60,13 +60,11 @@ public class TimerManager : MonoBehaviour
 
     void ArreterLeJeu()
     {
-        Time.timeScale = 0f;
-
-        if (victoryText != null)
+        if (winPanel != null)
         {
-            victoryText.gameObject.SetActive(true); // .gameObject ajouté ici ✅
+            winPanel.gameObject.SetActive(true);
         }
 
-        Debug.Log("Le jeu est figé ! Victoire !");
+        Time.timeScale = 0;
     }
 }
