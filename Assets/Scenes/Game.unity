@@ -1996,6 +1996,10 @@ PrefabInstance:
       propertyPath: victoryText
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 5883458140843817159, guid: bb1954e45d7bbe74695cb4d59a0387d2, type: 3}
+      propertyPath: timeRemaining
+      value: 45
+      objectReference: {fileID: 0}
     - target: {fileID: 7030516817365873418, guid: bb1954e45d7bbe74695cb4d59a0387d2, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 1068

@@ -5,8 +5,8 @@ public class GameManager : MonoBehaviour
 {
     public void Restart()
     {
-        Scene manager = SceneManager.GetActiveScene();
-        SceneManager.LoadScene(manager.name);
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("Game");
     }
 
     public void MainMenu()
