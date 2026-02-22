@@ -51,8 +51,15 @@ Fréquence : Apparaît toutes les 20 secondes.
 
 Conseil : Utilisez ce surplus d'agilité pour naviguer entre les grosses vagues de bombes.
 
-🚀 Comment tester ? Clonez ce dépôt.
+🚀 Comment jouer ? (Installation)
+Pour tester le jeu suivez ces étapes :
 
-Ouvrez le projet avec Unity 6.
+Cliquez sur le lien OneDrive fourni : 
 
-Chargez la scène game et appuyez sur Play !
+Téléchargez le dossier nommé unity.zip.
+
+Dézippez (extrayez) le dossier sur votre ordinateur.
+
+Ouvrez le dossier extrait et lancez le fichier myproject.exe.
+
+Le jeu se lancera instantanément. Bonne chance !
